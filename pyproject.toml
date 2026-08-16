@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zemail"
+version = "1.0.0"
+description = "Official Python SDK for the Zemail Developer API"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [
+    {name = "Zemail Support", email = "support@zemail.me"}
+]
+
+dependencies = [
+    "httpx>=0.24.0",
+    "pydantic[email]>=2.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/zemailme/zemail-python"
+Repository = "https://github.com/zemailme/zemail-python.git"
+Issues = "https://github.com/zemailme/zemail-python/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "respx>=0.20.0",
+    "ruff>=0.1.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["zemail*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["UP006", "UP007", "UP035", "UP045"]
